@@ -1,4 +1,5 @@
 src/*.ts
 /*.ts
+*.spec.*
 !relay-sequelize-pagination.d.ts
 typings/

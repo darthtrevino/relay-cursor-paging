@@ -1,5 +1,7 @@
 src/*.js
+src/*.d.ts
 index.js
+index.d.ts
 node_modules/
 typings/
 relay-sequelize-pagination.d.ts
