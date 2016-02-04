@@ -1,6 +1,6 @@
 {
   "name": "relay-sequelize-pagination",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Relay Cursor-Based Pagination Support for Sequelize",
   "main": "index.js",
   "scripts": {
