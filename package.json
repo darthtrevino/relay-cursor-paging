@@ -1,0 +1,36 @@
+{
+  "name": "relay-sequelize-pagination",
+  "version": "0.0.0",
+  "description": "Relay Cursor-Based Pagination Support for Sequelize",
+  "main": "index.js",
+  "scripts": {
+    "postinstall:tsd": "tsd install",
+    "postinstall": "npm-run-all --parallel 'postinstall:*' update-schema",
+    "test:mocha": "mocha --require ts-node/register src/*.spec.*",
+    "generate-dts": "dts-generator --name relay-sequelize-pagination --exclude **.spec.ts --exclude typings/**/*.ts --exclude node_modules/**/*.ts --project . --file index.ts --out relay-sequelize-pagination.d.ts",
+    "test": "npm-run-all 'test:*'"
+  },
+  "keywords": [
+    "relay",
+    "sequelize",
+    "pagination",
+    "paging",
+    "cursors"
+  ],
+  "author": "Chris Trevino",
+  "license": "MIT",
+  "peerDependencies": {
+    "graphql-relay": "^0.3.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "dts-generator": "^1.6.3",
+    "graphql": "^0.4.16",
+    "graphql-relay": "^0.3.6",
+    "mocha": "^2.4.5",
+    "npm-run-all": "^1.5.1",
+    "ts-node": "^0.5.5",
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.5"
+  }
+}
