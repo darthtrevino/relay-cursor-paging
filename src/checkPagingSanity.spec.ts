@@ -1,6 +1,6 @@
 import checkPagingSanity from "./checkPagingSanity";
 import { IPagingMeta } from "./interfaces";
-const { expect } = require("chai");
+import { expect } from "chai";
 
 describe("The Argument Sanity Checker", () => {
     describe("will throw an error when a client", () => {

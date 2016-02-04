@@ -7,7 +7,7 @@
     "postinstall:tsd": "tsd install",
     "postinstall": "npm-run-all --parallel 'postinstall:*' update-schema",
     "test:mocha": "mocha --require ts-node/register src/*.spec.*",
-    "generate-dts": "dts-generator --name relay-sequelize-pagination --exclude **.spec.ts --exclude typings/**/*.ts --exclude node_modules/**/*.ts --project . --file index.ts --out relay-sequelize-pagination.d.ts",
+    "generate-dts": "dts-generator --name relay-sequelize-pagination --exclude 'node_modules/**/*.d.ts' --exclude 'typings/**/*.d.ts' --exclude 'src/**/*.spec.ts' --project . --out relay-sequelize-pagination.d.ts",
     "test": "npm-run-all 'test:*'"
   },
   "keywords": [

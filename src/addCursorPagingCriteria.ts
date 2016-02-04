@@ -4,6 +4,7 @@ const {
 } = require("graphql-relay");
 import checkPagingSanity from "./checkPagingSanity";
 import { ICursorPageable } from "./interfaces";
+import { FindOptions } from "sequelize";
 
 /**
  * Augments a Sequelize criteria object with Relay's cursor-based pagination. 
@@ -14,7 +15,7 @@ import { ICursorPageable } from "./interfaces";
  * 
  * TODO: Handle the case when a user uses 'last' alone.
  */
-export default function addCursorPagingCriteria(criteria, args: ICursorPageable) {
+export default function addCursorPagingCriteria(criteria: FindOptions, args: ICursorPageable) {
     const {isForwardPaging, isBackwardPaging} = checkPagingSanity(args);
     const {first, last, after, before} = args;
     

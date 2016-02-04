@@ -1,6 +1,7 @@
 /**
  * An interface for Relay's cursor-based paging arguments
- * TODO: Whenever graphql-relay gets typescript metadata, this should exist in there.
+ * 
+ * TODO: This interface, or something like it, probably belongs in a Relay core project
  */
 export interface ICursorPageable {
     // Backward Paging Arguments
