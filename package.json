@@ -4,11 +4,12 @@
   "description": "Relay Cursor-Based Pagination Support for Sequelize",
   "main": "index.js",
   "scripts": {
+    "clean": "rm src/*.js src/*.d.ts index.d.ts index.js relay-sequelize-pagination.d.ts",
     "postinstall:tsd": "tsd install",
-    "postinstall": "npm-run-all --parallel 'postinstall:*' update-schema",
+    "postinstall": "npm-run-all --parallel 'postinstall:*'",
     "test:mocha": "mocha --require ts-node/register src/*.spec.*",
     "generate-dts": "dts-generator --name relay-sequelize-pagination --exclude 'node_modules/**/*.d.ts' --exclude 'typings/**/*.d.ts' --exclude 'src/**/*.spec.ts' --project . --out relay-sequelize-pagination.d.ts",
-    "test": "npm-run-all 'test:*'",
+    "test": "npm-run-all 'test:*' compile generate-dts",
     "compile": "tsc --rootDir ."
   },
   "keywords": [
