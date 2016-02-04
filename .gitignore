@@ -4,4 +4,4 @@ index.js
 index.d.ts
 node_modules/
 typings/
-relay-sequelize-pagination.d.ts
+types.d.ts
