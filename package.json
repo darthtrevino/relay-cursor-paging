@@ -8,13 +8,13 @@
   },
   "main": "index.js",
   "scripts": {
-    "clean": "rm src/*.js src/*.d.ts index.d.ts index.js relay-sequelize-pagination.d.ts",
+    "clean": "rm src/*.js src/*.d.ts index.d.ts index.js types.d.ts",
     "postinstall:tsd": "tsd install",
     "postinstall": "npm-run-all --parallel 'postinstall:*'",
     "test:mocha": "mocha --require ts-node/register src/*.spec.*",
     "generate-dts": "dts-generator --name relay-sequelize-pagination --exclude 'node_modules/**/*.d.ts' --exclude 'typings/**/*.d.ts' --exclude 'src/**/*.spec.ts' --project . --out types.d.ts --main 'relay-sequelize-pagination/index'",
     "test": "npm-run-all 'test:*' compile generate-dts",
-    "compile": "tsc --rootDir ."
+    "compile": "tsc --declaration --rootDir ."
   },
   "keywords": [
     "relay",
