@@ -1,18 +1,24 @@
-[![Build Status](https://travis-ci.org/darthtrevino/relay-sequelize-pagination.svg?branch=master)](https://travis-ci.org/darthtrevino/relay-sequelize-pagination)
+[![Build Status](https://travis-ci.org/darthtrevino/relay-cursor-paging.svg?branch=master)](https://travis-ci.org/darthtrevino/relay-cursor-paging)
 
-# relay-sequelize-pagination
-### Relay Cursor-Based Pagination Support for Sequelize
+# relay-cursor-paging
+### Relay Cursor-Based Pagination Support for Databases
 
-This microlibrary exports a function that will mutate the `limit` and `criteria` fields of a Sequelize `FindOptions` object with values based on Relay's pagination fields (e.g. `first`, `after`, `last`, and `before`).
+This microlibrary exports a function that will emit an object with `limit` and `criteria` fields based on Relay's pagination fields (e.g. `first`, `after`, `last`, and `before`).
+These fields can be then be used to page into your database implementation (Mongoose, Sequelize, etc..).
 
 ```js
-const {getPagingParameters, pageable} = require("relay-sequelize-pagination");
+const {getPagingParameters} = require("relay-cursor-paging");
 
 const myType = new GraphQLObjectType({
     fields: () => {  
         relatedThings: {      
             type: thingConnection,
-            args: pageable({}),
+            args: { 
+                after: { type: GraphQLString },
+                first: { type: GraphQLInt },
+                before: { type: GraphQLString },
+                last: { type: GraphQLInt },
+            },
             resolve: (root, args) => {
                 const { limit, offset } = getPagingParameters(args);
                 const criteria = makeCriteriaForMyDomain(args, limit, offset);                                            
