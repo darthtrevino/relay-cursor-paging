@@ -3,25 +3,24 @@
 # relay-cursor-paging
 ### Relay Cursor-Based Pagination Support for Databases
 
-This microlibrary exports a function that will emit an object with `limit` and `criteria` fields based on Relay's pagination fields (e.g. `first`, `after`, `last`, and `before`).
-These fields can be then be used to page into your database implementation (Mongoose, Sequelize, etc..).
+#### API:
+**getPagingParameters(args)**: Emits an object with `limit` and `criteria` fields based on Relay's pagination fields (e.g. `first`, `after`, `last`, and `before`).
+
+**pageable(argSpec)**: Emits an augmented Argument Specification with `first`, `after`, `before`, and `last` arguments.
 
 ```js
-const {getPagingParameters} = require("relay-cursor-paging");
+import { pageable, getPagingParameters } from "relay-cursor-paging";
+const { connectionFromPromisedArraySlice } = require("graphql-relay");
 
 const myType = new GraphQLObjectType({
     fields: () => {  
         relatedThings: {      
             type: thingConnection,
-            args: { 
-                after: { type: GraphQLString },
-                first: { type: GraphQLInt },
-                before: { type: GraphQLString },
-                last: { type: GraphQLInt },
-            },
+            args: pageable({}), // Adds first, after, last, and before arguments
             resolve: (root, args) => {
-                const { limit, offset } = getPagingParameters(args);
-                const criteria = makeCriteriaForMyDomain(args, limit, offset);                                            
+                const { limit, offset } = getPagingParameters(args);                
+                const criteria = makeCriteria(args, limit, offset);
+                                                            
                 return connectionFromPromisedArraySlice(
                     thingRepository.findAll(criteria),
                     args, 
