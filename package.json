@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "dts-generator": "^1.6.3",
     "graphql": "^0.4.16",
     "graphql-relay": "^0.3.6",
     "mocha": "^2.4.5",
