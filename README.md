@@ -3,8 +3,10 @@
 # relay-cursor-paging
 ### Relay Cursor-Based Pagination Support for Databases
 
-This microlibrary exports a function that will emit an object with `limit` and `criteria` fields based on Relay's pagination fields (e.g. `first`, `after`, `last`, and `before`).
-These fields can be then be used to page into your database implementation (Mongoose, Sequelize, etc..).
+#### API:
+**getPagingParameters(args)**: Emits an object with `limit` and `criteria` fields based on Relay's pagination fields (e.g. `first`, `after`, `last`, and `before`).
+
+**pageable(argSpec)**: Emits an augmented Argument Specification with `first`, `after`, `before`, and `last` arguments.
 
 ```js
 import { pageable, getPagingParameters } from "relay-cursor-paging";
