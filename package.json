@@ -1,6 +1,6 @@
 {
   "name": "relay-cursor-paging",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Relay Cursor-Based Pagination Support for Sequelize",
   "repository": {
     "type": "git",
@@ -9,11 +9,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm src/*.js src/*.d.ts index.d.ts index.js types.d.ts",
-    "postinstall:tsd": "tsd install",
-    "postinstall": "npm-run-all --parallel 'postinstall:*'",
+    "install:tsd": "tsd install",
     "test:mocha": "mocha --require ts-node/register src/*.spec.*",
     "generate-dts": "dts-generator --name relay-cursor-paging --exclude 'node_modules/**/*.d.ts' --exclude 'typings/**/*.d.ts' --exclude 'src/**/*.spec.ts' --project . --out types.d.ts --main 'relay-cursor-paging/index'",
-    "test": "npm-run-all 'test:*' compile generate-dts",
+    "test": "npm-run-all install:tsd 'test:*' compile generate-dts",
     "compile": "tsc --declaration --rootDir ."
   },
   "keywords": [
