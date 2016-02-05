@@ -1,6 +1,6 @@
 {
   "name": "relay-cursor-paging",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Relay Cursor-Based Pagination Support for Sequelize",
   "repository": {
     "type": "git",
@@ -9,11 +9,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm src/*.js src/*.d.ts index.d.ts index.js types.d.ts",
-    "install:tsd": "tsd install",
-    "test:mocha": "mocha --require ts-node/register src/*.spec.*",
-    "generate-dts": "dts-generator --name relay-cursor-paging --exclude 'node_modules/**/*.d.ts' --exclude 'typings/**/*.d.ts' --exclude 'src/**/*.spec.ts' --project . --out types.d.ts --main 'relay-cursor-paging/index'",
-    "test": "npm-run-all install:tsd 'test:*' compile generate-dts",
-    "compile": "tsc --declaration --rootDir ."
+    "install:types": "typings install",
+    "mocha": "mocha --require ts-node/register src/*.spec.*",
+    "compile": "tsc --rootDir .",
+    "bundle-types": "typings bundle > types.d.ts",
+    "test": "npm-run-all install:types mocha compile bundle-types"    
   },
   "keywords": [
     "relay",
@@ -25,20 +25,21 @@
   "author": "Chris Trevino",
   "license": "MIT",
   "peerDependencies": {
-    "graphql-relay": "^0.3.6"
+    "graphql-relay": "^0.3.6",
+    "graphql": "~0.4.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "dts-generator": "^1.6.3",
+    "graphql": "^0.4.16",
     "graphql-relay": "^0.3.6",
     "mocha": "^2.4.5",
     "npm-run-all": "^1.5.1",
     "ts-node": "^0.5.5",
-    "tsd": "^0.6.5",
-    "typescript": "^1.7.5"
+    "typescript": "^1.7.5",
+    "typings": "^0.6.6"
   },
   "dependencies": {
-    "graphql": "^0.4.16",
     "lodash": "^4.2.1"
   }
 }

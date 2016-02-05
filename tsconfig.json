@@ -5,7 +5,8 @@
         "declaration": true
     },
     "exclude": [
-      "node_modules",
-      "relay-sequelize-pagination.d.ts"
+        "typings/browser.d.ts",
+        "typings/browser",
+        "node_modules"
     ]
 }
