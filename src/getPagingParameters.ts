@@ -3,8 +3,10 @@ const {
     toGlobalId
 } = require("graphql-relay");
 import checkPagingSanity from "./checkPagingSanity";
-import { ICursorPageable } from "./interfaces";
-import { FindOptions } from "sequelize";
+import { 
+    ICursorPageable,
+    IPagingParameters
+ } from "./interfaces";
 
 /**
  * Augments a Sequelize criteria object with Relay's cursor-based pagination. 
@@ -15,7 +17,7 @@ import { FindOptions } from "sequelize";
  * 
  * TODO: Handle the case when a user uses 'last' alone.
  */
-export default function addCursorPagingCriteria(criteria: FindOptions, args: ICursorPageable) {
+export default function getPagingParameters(args: ICursorPageable): IPagingParameters {
     const {isForwardPaging, isBackwardPaging} = checkPagingSanity(args);
     const {first, last, after, before} = args;
     
@@ -23,19 +25,21 @@ export default function addCursorPagingCriteria(criteria: FindOptions, args: ICu
     const nextId = (cursor) => getId(cursor) + 1 
     
     if (isForwardPaging) {    
-        criteria.limit = first;
-        criteria.offset = (after ? nextId(after) : 0);
+        return { 
+            limit: first,
+            offset: after ? nextId(after) : 0
+        };
     } else if (isBackwardPaging) {
-        criteria.limit = last;
-        if (before) {
-            let offset = getId(before) - last;
-            // Check if this query underflows.  
-            if (offset < 0) {
-                // Adjust the limit with the underflow value
-                criteria.limit = Math.max(last + offset, 0);
-                offset = 0; 
-            }
-            criteria.offset = offset;
+        let limit = last;
+        let offset = getId(before) - last;
+        
+        // Check to see if our before-page is underflowing past the 0th item
+        if (offset < 0) {
+            // Adjust the limit with the underflow value
+            limit = Math.max(last + offset, 0);
+            offset = 0; 
         }
+        
+        return { offset, limit };
     }
 }

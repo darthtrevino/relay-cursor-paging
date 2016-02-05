@@ -1,10 +1,9 @@
-import { ICursorPageable } from "./src/interfaces";
-import addCursorPagingCriteria from "./src/addCursorPagingCriteria";
-import { FindOptions } from "sequelize";
+import { ICursorPageable, IPagingParameters } from "./src/interfaces";
+import getPagingParameters from "./src/getPagingParameters";
 
 /**
  * The API Entry Point
  */
 export = {
-    addCursorPagingCriteria
+    getPagingParameters
 };

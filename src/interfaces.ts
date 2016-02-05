@@ -17,3 +17,8 @@ export interface IPagingMeta {
     isForwardPaging: boolean;
     isBackwardPaging: boolean;
 }
+
+export interface IPagingParameters {
+    offset: number;
+    limit: number;
+}

@@ -6,19 +6,26 @@
 This microlibrary exports a function that will mutate the `limit` and `criteria` fields of a Sequelize `FindOptions` object with values based on Relay's pagination fields (e.g. `first`, `after`, `last`, and `before`).
 
 ```js
-const {addCursorPagingCriteria} = require("relay-sequelize-pagination").default;
+const {getPagingParameters, pageable} = require("relay-sequelize-pagination");
 
-resolve: (root, args) => {
-    const criteria = makeCriteriaForMyDomain(args); // An 'order' property should be added to the criteria here or in your repository.
-    addCursorPagingCriteria(criteria, args);
-                                   
-    return connectionFromPromisedArraySlice(
-        myRepository.findAll(criteria),
-        args, 
-        {
-            sliceStart: criteria.offset, 
-            arrayLength: Number.MAX_VALUE // or the result of a count query
+const myType = new GraphQLObjectType({
+    fields: () => {  
+        relatedThings: {      
+            type: thingConnection,
+            args: pageable({}),
+            resolve: (root, args) => {
+                const { limit, offset } = getPagingParameters(args);
+                const criteria = makeCriteriaForMyDomain(args, limit, offset);                                            
+                return connectionFromPromisedArraySlice(
+                    thingRepository.findAll(criteria),
+                    args, 
+                    {
+                        sliceStart: criteria.offset, 
+                        arrayLength: Number.MAX_VALUE // or the result of a count query
+                    }
+                );
+            }
         }
-    );
-}
+    }
+});
 ```

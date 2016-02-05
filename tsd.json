@@ -17,17 +17,8 @@
     "assertion-error/assertion-error.d.ts": {
       "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
     },
-    "sequelize/sequelize.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "lodash/lodash-3.10.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "bluebird/bluebird.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
-    },
-    "validator/validator.d.ts": {
-      "commit": "e69fe60f2d6377ea4fae539493997b098f52cad1"
+    "lodash/lodash.d.ts": {
+      "commit": "4ec3c5bf291bc02f49eb30c1077340b235165c67"
     }
   }
 }

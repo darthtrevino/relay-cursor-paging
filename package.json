@@ -1,10 +1,10 @@
 {
-  "name": "relay-sequelize-pagination",
+  "name": "relay-cursor-paging",
   "version": "0.0.2",
   "description": "Relay Cursor-Based Pagination Support for Sequelize",
   "repository": {
-      "type": "git",
-      "url": "git@github.com:darthtrevino/relay-sequelize-pagination.git"
+    "type": "git",
+    "url": "git@github.com:darthtrevino/relay-cursor-paging.git"
   },
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "postinstall:tsd": "tsd install",
     "postinstall": "npm-run-all --parallel 'postinstall:*'",
     "test:mocha": "mocha --require ts-node/register src/*.spec.*",
-    "generate-dts": "dts-generator --name relay-sequelize-pagination --exclude 'node_modules/**/*.d.ts' --exclude 'typings/**/*.d.ts' --exclude 'src/**/*.spec.ts' --project . --out types.d.ts --main 'relay-sequelize-pagination/index'",
+    "generate-dts": "dts-generator --name relay-cursor-paging --exclude 'node_modules/**/*.d.ts' --exclude 'typings/**/*.d.ts' --exclude 'src/**/*.spec.ts' --project . --out types.d.ts --main 'relay-cursor-paging/index'",
     "test": "npm-run-all 'test:*' compile generate-dts",
     "compile": "tsc --declaration --rootDir ."
   },
@@ -31,12 +31,15 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "dts-generator": "^1.6.3",
-    "graphql": "^0.4.16",
     "graphql-relay": "^0.3.6",
     "mocha": "^2.4.5",
     "npm-run-all": "^1.5.1",
     "ts-node": "^0.5.5",
     "tsd": "^0.6.5",
     "typescript": "^1.7.5"
+  },
+  "dependencies": {
+    "graphql": "^0.4.16",
+    "lodash": "^4.2.1"
   }
 }
