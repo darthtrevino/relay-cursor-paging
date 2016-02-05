@@ -9,12 +9,9 @@ import {
  } from "./interfaces";
 
 /**
- * Augments a Sequelize criteria object with Relay's cursor-based pagination. 
- * This function will create a new criteria object with updated 'limit' and 'offset' parameters.
- * 
- * Note:  The criteria object must have an order field specified before it is used to retrieve results. 
- * This is left to clients.  
- * 
+ * Create a 'paging parameters' object with 'limit' and 'offset' fields based on the incoming 
+ * cursor-paging arguments.
+ *
  * TODO: Handle the case when a user uses 'last' alone.
  */
 export default function getPagingParameters(args: ICursorPageable): IPagingParameters {
