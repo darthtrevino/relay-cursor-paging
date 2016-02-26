@@ -25,8 +25,8 @@ const myType = new GraphQLObjectType({
                     thingRepository.findAll(criteria),
                     args, 
                     {
-                        sliceStart: criteria.offset, 
-                        arrayLength: Number.MAX_VALUE // or the result of a count query
+                        sliceStart: 0,
+                        arrayLength: // count query result
                     }
                 );
             }
