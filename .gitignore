@@ -5,3 +5,4 @@ index.d.ts
 node_modules/
 typings/
 types.d.ts
+npm-debug.log

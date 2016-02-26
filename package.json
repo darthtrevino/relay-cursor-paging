@@ -10,10 +10,10 @@
   "scripts": {
     "clean": "rm src/*.js src/*.d.ts index.d.ts index.js types.d.ts",
     "install:types": "typings install",
-    "mocha": "mocha --require ts-node/register src/*.spec.*",
+    "mocha": "mocha src/*.spec.js",
     "compile": "tsc --rootDir .",
     "bundle-types": "typings bundle > types.d.ts",
-    "test": "npm-run-all install:types mocha compile bundle-types"    
+    "test": "npm-run-all install:types compile mocha bundle-types"
   },
   "keywords": [
     "relay",
@@ -34,7 +34,6 @@
     "graphql-relay": "^0.3.6",
     "mocha": "^2.4.5",
     "npm-run-all": "^1.5.1",
-    "ts-node": "^0.5.5",
     "typescript": "^1.7.5",
     "typings": "^0.6.6"
   },
