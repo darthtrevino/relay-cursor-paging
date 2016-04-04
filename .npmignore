@@ -4,3 +4,4 @@
 typings/
 .travis.yml
 *~
+*.js.map

@@ -6,3 +6,4 @@ node_modules/
 typings/
 types.d.ts
 npm-debug.log
+*.js.map
