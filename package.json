@@ -1,19 +1,19 @@
 {
   "name": "relay-cursor-paging",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Relay Cursor-Based Pagination Support for Sequelize",
   "repository": {
     "type": "git",
     "url": "git@github.com:darthtrevino/relay-cursor-paging.git"
   },
   "main": "index.js",
+  "typings": "index",
   "scripts": {
     "clean": "rm src/*.js src/*.d.ts index.d.ts index.js types.d.ts",
     "install:types": "typings install",
     "mocha": "mocha src/*.spec.js",
-    "compile": "tsc --rootDir .",
-    "bundle-types": "typings bundle > types.d.ts",
-    "test": "npm-run-all install:types compile mocha bundle-types"
+    "compile": "tsc",
+    "test": "npm-run-all install:types compile mocha"
   },
   "keywords": [
     "relay",
