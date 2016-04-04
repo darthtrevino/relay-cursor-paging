@@ -5,3 +5,5 @@ typings/
 .travis.yml
 *~
 *.js.map
+typings.json
+tsconfig.json
