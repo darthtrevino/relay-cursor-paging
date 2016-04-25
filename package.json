@@ -35,7 +35,7 @@
     "mocha": "^2.4.5",
     "npm-run-all": "^1.5.1",
     "typescript": "^1.7.5",
-    "typings": "^0.6.6"
+    "typings": "^0.8.1"
   },
   "dependencies": {
     "lodash": "^4.2.1"
