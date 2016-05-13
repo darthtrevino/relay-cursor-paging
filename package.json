@@ -33,7 +33,7 @@
     "graphql": "^0.5.0",
     "graphql-relay": "^0.4.1",
     "mocha": "^2.4.5",
-    "npm-run-all": "^2.0.0",
+    "npm-run-all": "^2.1.0",
     "typescript": "^1.7.5",
     "typings": "^0.8.1"
   },
