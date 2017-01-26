@@ -6,14 +6,15 @@
     "type": "git",
     "url": "git@github.com:darthtrevino/relay-cursor-paging.git"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "clean": "rm src/*.js src/*.d.ts index.d.ts index.js types.d.ts",
-    "install:types": "typings install",
-    "mocha": "mocha src/*.spec.js",
+    "clean": "rimraf lib",
+    "jest": "jest",
+    "jest:coverage": "jest --coverage",
+    "jest:watch": "jest --watch",
     "compile": "tsc",
-    "test": "npm-run-all install:types compile mocha"
+    "test": "npm-run-all clean jest compile"
   },
   "keywords": [
     "relay",
@@ -25,19 +26,30 @@
   "author": "Chris Trevino",
   "license": "MIT",
   "peerDependencies": {
-    "graphql-relay": ">=0.3.6",
-    "graphql": ">=0.4.2"
+    "graphql": ">=0.4.2",
+    "graphql-relay": ">=0.3.6"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "graphql": "^0.5.0",
+    "@types/jest": "^16.0.4",
+    "graphql": "^0.9.1",
     "graphql-relay": "^0.5.0",
-    "mocha": "^2.4.5",
-    "npm-run-all": "^1.5.1",
-    "typescript": "^2.1.5",
-    "typings": "^0.8.1"
+    "jest": "^18.1.0",
+    "npm-run-all": "^4.0.1",
+    "rimraf": "^2.5.4",
+    "typescript": "^2.1.5"
   },
   "dependencies": {
-    "lodash": "^4.2.1"
+    "@types/graphql-relay": "^0.4.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/scripts/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
   }
 }

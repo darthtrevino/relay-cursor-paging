@@ -1,7 +1,7 @@
-const {
+import {
     fromGlobalId,
     toGlobalId
-} = require("graphql-relay");
+} from "graphql-relay";
 import checkPagingSanity from "./checkPagingSanity";
 import {
     ICursorPageable,
