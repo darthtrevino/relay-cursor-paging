@@ -1,9 +1,7 @@
-*.ts
-!*.d.ts
-*.spec.*
-typings/
+src/
+scripts/
+coverage/
+__tests__
 .travis.yml
-*~
-*.js.map
-typings.json
 tsconfig.json
+.npmignore

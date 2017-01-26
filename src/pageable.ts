@@ -1,8 +1,8 @@
-const { GraphQLInt, GraphQLString } = require("graphql");
-import * as _ from "lodash";
+import { GraphQLInt, GraphQLString, GraphQLScalarType } from "graphql";
 
 export default function pageable(args = {}) {
-    return _.extend({}, args, {
+    return {
+        ...args,
         // Forward Paging Arguments
         after: { type: GraphQLString },
         first: { type: GraphQLInt },
@@ -10,5 +10,5 @@ export default function pageable(args = {}) {
         // Backward Paging Arguments
         before: { type: GraphQLString },
         last: { type: GraphQLInt },
-    });
+    };
 }

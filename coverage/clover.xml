@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1485471796348" clover="3.2.0">
+  <project timestamp="1485471796348" name="All files">
+    <metrics statements="32" coveredstatements="29" conditionals="32" coveredconditionals="29" methods="4" coveredmethods="4" elements="68" coveredelements="62" complexity="0" loc="32" ncloc="32" packages="1" files="2" classes="2">
+      <file name="checkPagingSanity.ts" path="/Users/ctrevino/Workspace/oss/relay-cursor-paging/src/checkPagingSanity.ts">
+        <metrics statements="14" coveredstatements="11" conditionals="24" coveredconditionals="21" methods="1" coveredmethods="1"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="4" count="12" type="stmt"/>
+        <line num="5" count="12" type="stmt"/>
+        <line num="6" count="12" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="10" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="10" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+      </file>
+      <file name="getPagingParameters.ts" path="/Users/ctrevino/Workspace/oss/relay-cursor-paging/src/getPagingParameters.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>

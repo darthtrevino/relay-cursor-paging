@@ -1,23 +1,22 @@
-import getPagingParameters from "./getPagingParameters";
-const {
+import getPagingParameters from "../getPagingParameters";
+import {
     fromGlobalId,
     toGlobalId
-} = require("graphql-relay");
-import { expect } from "chai";
+} from "graphql-relay";
 
 describe("getPagingParameters", () => {
 
     describe("when 'first' is present", () => {
         it("will add a limit field to the criteria object", () => {
             const criteria = getPagingParameters({first: 10});
-            expect(criteria.limit).to.equal(10);
+            expect(criteria.limit).toEqual(10);
         });
 
         describe("and 'after' is present", () => {
             it("will add limit and offset fields to the criteria object", () => {
-                const criteria = getPagingParameters({first: 10, after: toGlobalId("Connection", 100)});
-                expect(criteria.offset).to.equal(101);
-                expect(criteria.limit).to.equal(10);
+                const criteria = getPagingParameters({first: 10, after: toGlobalId("Connection", '100')});
+                expect(criteria.offset).toEqual(101);
+                expect(criteria.limit).toEqual(10);
             });
         });
     });
@@ -25,14 +24,14 @@ describe("getPagingParameters", () => {
     describe("when 'last' is present", () => {
        describe("and 'before' is present", () => {
           it("will add limit and offset fields to the criteria object", () => {
-                const criteria = getPagingParameters({last: 10, before: toGlobalId("Connection", 100)});
-                expect(criteria.offset).to.equal(90);
-                expect(criteria.limit).to.equal(10);
+                const criteria = getPagingParameters({last: 10, before: toGlobalId("Connection", '100')});
+                expect(criteria.offset).toEqual(90);
+                expect(criteria.limit).toEqual(10);
           });
           it("will check for underflowing offsets", () => {
-                const criteria = getPagingParameters({last: 2, before: toGlobalId("Connection", 1)});
-                expect(criteria.offset).to.equal(0);
-                expect(criteria.limit).to.equal(1);
+                const criteria = getPagingParameters({last: 2, before: toGlobalId("Connection", '1')});
+                expect(criteria.offset).toEqual(0);
+                expect(criteria.limit).toEqual(1);
           });
        });
     });
@@ -40,7 +39,7 @@ describe("getPagingParameters", () => {
     describe("when no paging argument are present", () => {
       it("emits an empty object", () => {
           const criteria = getPagingParameters({});
-          expect(criteria).to.deep.equal({});
+          expect(criteria).toEqual({});
       });
     })
 });
