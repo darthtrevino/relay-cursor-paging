@@ -14,7 +14,9 @@
     "jest:coverage": "jest --coverage",
     "jest:watch": "jest --watch",
     "compile": "tsc",
-    "test": "npm-run-all clean jest compile"
+    "test": "npm-run-all clean jest compile",
+    "prepublish": "npm test",
+    "postpublish": "git push origin --tags"
   },
   "keywords": [
     "relay",
