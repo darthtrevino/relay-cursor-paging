@@ -32,7 +32,7 @@
     "graphql-relay": ">=0.3.6"
   },
   "devDependencies": {
-    "@types/jest": "^18.1.1",
+    "@types/jest": "^19.2.3",
     "graphql": "^0.9.1",
     "graphql-relay": "^0.5.0",
     "jest": "^18.1.0",
