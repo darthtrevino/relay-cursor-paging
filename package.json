@@ -7,7 +7,7 @@
     "url": "git@github.com:darthtrevino/relay-cursor-paging.git"
   },
   "main": "lib/index.js",
-  "typings": "index.d.ts",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "clean": "rimraf lib",
     "jest": "jest",
